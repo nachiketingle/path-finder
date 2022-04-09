@@ -1,0 +1,46 @@
+.Cell {
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  margin: 1px;
+  .Square {
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    border: solid aqua;
+    &.north {
+      border-top: solid black;
+    }
+
+    &.east {
+      border-right: solid black;
+    }
+
+    &.south {
+      border-bottom: solid black;
+    }
+
+    &.west {
+      border-left: solid black;
+    }
+  }
+  &:hover .Square{
+    transform: scale(1.25);
+    background-color: greenyellow;
+    border-style: none;
+  }
+
+  &.selected {
+    transform: scale(1.25);
+    background-color: greenyellow;
+    border-style: none;
+  }
+
+}
+
+.CellRow {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+}
+

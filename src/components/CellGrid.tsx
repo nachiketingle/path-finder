@@ -1,20 +1,16 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 import cellGridState from '../states/CellGridState';
-import CellComponent from './CellComponent';
+import CellRow from './CellRow';
 
 const CellGrid = () => {
   const cellGridSize = useRecoilValue(cellGridState);
-  const cellComponentList = [];
+  const cellList = [];
   for (let i = 0; i < cellGridSize.width; i++) {
-    const cellList = [];
-    for (let j = 0; j < cellGridSize.height; j++) {
-      cellList.push(<CellComponent key={`${i} ${j}`} row={i} col={j} />);
-    }
-    cellComponentList.push(cellList);
+    cellList.push(<CellRow key={i} row={i} width={cellGridSize.width} />);
   }
 
-  return <>{cellComponentList}</>;
+  return <>{cellList}</>;
 };
 
 export default CellGrid;
